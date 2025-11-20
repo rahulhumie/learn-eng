@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>English Conversation Coach</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div class="logo">English Conversation Coach</div>
+    <button id="backToScenarios" class="ghost-btn" aria-label="Back to scenarios">
+      ← Scenarios
+    </button>
+  </header>
+
+  <main>
+    <section id="landing" class="panel active" aria-labelledby="landing-title">
+      <div class="hero">
+        <h1 id="landing-title">Build Confidence in Spoken English</h1>
+        <p>
+          Practice real-life conversations with guided prompts, instant speech feedback,
+          and friendly AI partners. Everything runs directly in your browser.
+        </p>
+        <button id="startLearningBtn" class="primary-btn">Start Learning</button>
+      </div>
+    </section>
+
+    <section id="scenarioSelect" class="panel" aria-labelledby="scenario-title">
+      <h2 id="scenario-title">Choose a conversation scenario</h2>
+      <p>Select one to begin practicing with speech guidance.</p>
+      <div class="scenario-grid">
+        <article class="scenario-card" data-scenario-id="train">
+          <h3>Scenario 1 – Train Inquiry</h3>
+          <p>Help a traveler gather train timings for Ahmedabad.</p>
+          <span class="tag">Beginner</span>
+        </article>
+        <article class="scenario-card" data-scenario-id="loan">
+          <h3>Scenario 2 – Home Loan Information</h3>
+          <p>Guide someone to the right counter for loan assistance.</p>
+          <span class="tag">Intermediate</span>
+        </article>
+        <article class="scenario-card" data-scenario-id="college">
+          <h3>Scenario 3 – College Function Chief Guest</h3>
+          <p>Share details about the chief guest at a college event.</p>
+          <span class="tag">Advanced</span>
+        </article>
+      </div>
+    </section>
+
+    <section id="conversation" class="panel" aria-live="polite">
+      <div class="conversation-header">
+        <div>
+          <p class="eyebrow">Active Scenario</p>
+          <h2 id="scenarioHeading">Scenario</h2>
+        </div>
+        <div class="status-block">
+          <span id="statusBadge" class="status idle">Idle</span>
+          <span id="stepCounter" class="muted">0 / 0</span>
+        </div>
+      </div>
+
+      <div class="conversation-body">
+        <div id="aiPrompt" class="bubble ai">
+          <p class="bubble-label">AI Prompt</p>
+          <p id="aiLine">Select a scenario to begin.</p>
+        </div>
+
+        <div id="userExpected" class="bubble user">
+          <p class="bubble-label">Your Response (target)</p>
+          <p id="expectedLine">—</p>
+        </div>
+
+        <div class="controls">
+          <button id="beginConversationBtn" class="primary-btn">Begin Conversation</button>
+          <button id="repeatPromptBtn" class="ghost-btn">Replay AI Line</button>
+          <button id="retryBtn" class="ghost-btn">Try Again</button>
+          <button id="micToggleBtn" class="mic-btn" aria-live="polite">
+            🎙️ Molly Mic — Tap & Speak
+          </button>
+        </div>
+
+        <div id="manualInputContainer" class="manual-input hidden">
+          <label for="manualInput">Speech recognition unavailable. Type your response:</label>
+          <div class="manual-row">
+            <textarea id="manualInput" rows="2" placeholder="Type what you would say..."></textarea>
+            <button id="submitManualBtn" class="primary-btn">Submit</button>
+          </div>
+        </div>
+
+        <div class="feedback">
+          <div>
+            <p class="eyebrow">Last transcript</p>
+            <p id="transcriptText" class="mono">—</p>
+          </div>
+          <div>
+            <p class="eyebrow">Similarity</p>
+            <p id="similarityScore" class="score">0%</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="log">
+        <h3>Conversation Log</h3>
+        <ul id="conversationLog"></ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <small>Runs entirely in your browser using local speech tools.</small>
+  </footer>
+
+  <template id="logItemTemplate">
+    <li class="log-item">
+      <p class="log-ai"></p>
+      <p class="log-user"></p>
+      <span class="log-score"></span>
+    </li>
+  </template>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
+

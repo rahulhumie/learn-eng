@@ -1,0 +1,19 @@
+{
+  "name": "learn-eng",
+  "version": "1.0.0",
+  "description": "Offline English conversation coach with whisper.cpp + piper integration",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "setup": "bash setup.sh"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "multer": "^1.4.5-lts.1"
+  }
+}
+
